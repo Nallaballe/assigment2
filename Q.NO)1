@@ -1,0 +1,147 @@
+Qno1: Creat a class called add for adding two numbers using operator overloading.
+#include <iostream>
+
+class Add {
+private:
+    int num1;
+    int num2;
+
+public:
+    Add(int a, int b) : num1(a), num2(b) {}
+
+    Add operator+(const Add& obj) {
+        Add temp(num1 + obj.num1, num2 + obj.num2);
+        return temp;
+    }
+
+    void display() {
+        std::cout << "Sum: " << num1 + num2 << std::endl;
+    }
+};
+
+int main() {
+    Add obj1(10, 20);
+    Add obj2(30, 40);
+
+    Add result = obj1 + obj2;
+    result.display();
+
+    return 0;
+}
+
+
+
+Q.no:2 create a class called float contains one float data member.overload all 4 arithmetic operaters so that they operate on the objects of floats.c++ program
+#include <iostream>
+
+class Float {
+private:
+    float num;
+
+public:
+    Float(float a) : num(a) {}
+
+    Float operator+(const Float& obj) {
+        Float temp(num + obj.num);
+        return temp;
+
+
+
+Q:NO3 write a program to enter the marks of a student in five subjects then calculate total and aggregrate display the grade obtained by the student.
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    float marks[5];
+    float total = 0;
+    float aggregate = 0;
+
+    cout << "Enter marks in 5 subjects: ";
+    for (int i = 0; i < 5; i++) {
+        cin >> marks[i];
+        total += marks[i];
+    }
+
+    aggregate = total / 5;
+
+    cout << "Total marks: " << total << endl;
+    cout << "Aggregate marks: " << aggregate << endl;
+
+    if (aggregate >= 90 && aggregate <= 100) {
+        cout << "Grade: A" << endl;
+    } else if (aggregate >= 80 && aggregate < 90) {
+        cout << "Grade: B" << endl;
+    } else if (aggregate >= 70 && aggregate < 80) {
+        cout << "Grade: C" << endl;
+    } else if (aggregate >= 60 && aggregate < 70) {
+        cout << "Grade: D" << endl;
+    } else {
+        cout << "Grade: F" << endl;
+    }
+
+    return 0;
+}
+
+
+
+q.no4 write a program to find area of circle rectangle triangle using constructor overloading .
+
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual float area() = 0;
+};
+
+class Circle : public Shape {
+private:
+    float radius;
+
+public:
+    Circle(float r) : radius(r) {}
+
+    float area() {
+        return 3.14 * radius * radius;
+    }
+};
+
+class Rectangle : public Shape {
+private:
+    float length;
+    float breadth;
+
+public:
+    Rectangle(float l, float b) : length(l), breadth(b) {}
+
+    float area() {
+        return length * breadth;
+    }
+};
+
+class Triangle : public Shape {
+private:
+    float base;
+    float height;
+
+public:
+    Triangle(float b, float h) : base(b), height(h) {}
+
+    float area() {
+        return 0.5 * base * height;
+    }
+};
+
+int main() {
+    Circle c(5);
+    Rectangle r(4, 6);
+    Triangle t(3, 7);
+
+    cout << "Area of Circle: " << c.area() << endl;
+    cout << "Area of Rectangle: " << r.area() << endl;
+    cout << "Area of Triangle: " << t.area() << endl;
+
+    return 0;
+}
